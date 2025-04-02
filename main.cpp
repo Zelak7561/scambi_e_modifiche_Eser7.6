@@ -108,19 +108,17 @@ void scambia(int **M , int m , int n , int *&vMedia , int *s) {
 
     //scambio
     for (int i = 0; i < m - 1; i++) {
-        cout << "Massimo riga " << i << ": " << massimi[i] << endl;
+
+        // Stampa per il debug
+        cout << "Confrontando riga " << i << " con riga " << i + 1 << endl;
+        cout << "Massimo riga " << i << ": " << massimi[i] << " e Massimo riga " << i + 1 << ": " << massimi[i + 1] << endl;
+
         //Problema qui rivedi!!!
         if (massimi[i] != massimi[i + 1]) {
+            for (int j = 0; j < n; j++) {
 
-            for (int j = 0; j < m; j++) {
                 buffer_rig[j] = M[i][j];
-            }
-
-            for (int j = 0; j < m; j++) {
                 M[i][j] = M[i + 1][j];
-            }
-
-            for (int j = 0; j < m; j++) {
                 M[i + 1][j] = buffer_rig[j];
             }
 
