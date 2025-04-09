@@ -6,7 +6,7 @@ void leggi(int **&M, int m, int n);
 
 void stampa(int **M, int m, int n);
 void stampa_media(int *vMedia , int m , int *s);
-void stampa_s( int **M , int m, int n , int *s);
+void stampa_s(int **M , int m, int n , int *s);
 
 void scambia(int **M , int m , int n , int *&vMedia , int *s);
 
@@ -24,17 +24,12 @@ int main() {
    cout << endl;
 
     leggi(M, m, n);
-    // cout << "pre scambio" << endl;
-    // stampa(M, m, n);
+
     scambia(M , m , n , vMedia , &s);
     stampa_media(vMedia , m , &s);
     stampa_s(M , m , n , &s);
 
     cout << endl;
-    // cout << "post scambio" << endl;
-    // stampa(M, m, n);
-
-
 
     for (int i = 0; i < m; i++) {
         delete[] M[i];
@@ -109,14 +104,8 @@ void scambia(int **M , int m , int n , int *&vMedia , int *s) {
     //scambio
     for (int i = 0; i < m - 1; i++) {
 
-        // Stampa per il debug
-        cout << "Confrontando riga " << i << " con riga " << i + 1 << endl;
-        cout << "Massimo riga " << i << ": " << massimi[i] << " e Massimo riga " << i + 1 << ": " << massimi[i + 1] << endl;
-
-        //Problema qui rivedi!!!
         if (massimi[i] != massimi[i + 1]) {
             for (int j = 0; j < n; j++) {
-
                 buffer_rig[j] = M[i][j];
                 M[i][j] = M[i + 1][j];
                 M[i + 1][j] = buffer_rig[j];
